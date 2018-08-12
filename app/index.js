@@ -6,11 +6,13 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.get('/', function (req, res) {
-    res.render("index")
+    res.render("index",{query: null})
 })
 
 app.post('/', function (req, res) {
-    res.render('index');
+    let squery = req.body.search
+    console.log(squery)
+    res.render('index', {query: squery});
 })
 
 app.listen(3000, function () {
