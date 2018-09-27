@@ -1,0 +1,30 @@
+{
+  "name": "g2csv",
+  "version": "1.0.0",
+  "description": "Store Google search result in CSV format",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "json2csv": "^4.2.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abohmeed/g2csv.git"
+  },
+  "author": "Ahmed El-Fakharany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abohmeed/g2csv/issues"
+  },
+  "homepage": "https://github.com/abohmeed/g2csv#readme",
+  "scripts": {
+	  "start":"node index.js"
+  }
+}
