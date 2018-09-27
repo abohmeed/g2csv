@@ -1,6 +1,6 @@
 FROM node
-RUN git clone -q https://github.com/abohmeed/g2csv.git
-WORKDIR g2csv
+COPY app /app
+WORKDIR app
 RUN npm install > /dev/null
 EXPOSE 3000
 CMD ["npm","start"]
