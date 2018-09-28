@@ -1,0 +1,11 @@
+version: '3'
+services:
+
+# The middleware part
+  middleware:
+    image: middleware
+    ports:
+      - 3000:3000
+# The scraper part
+  scraper:
+    image: scraper
