@@ -1,0 +1,34 @@
+- hosts: development
+  become: yes
+  gather_facts: no
+  pre_tasks:
+  - name: 'install python'
+    raw: 'sudo apt-get -y install python'
+  tasks:
+  - name: Install docker prerequisites
+    apt:
+      update_cache: yes
+      name: "{{item}}"
+      state: present
+    with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+  - name: Add the apt key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg 
+      id: 0EBFCD88
+      state: present
+  - name: Get the lsb-release value
+    command: lsb_release -cs
+    register: lsb_release
+  
+  - name: Add the necessary repository
+    apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{lsb_release.stdout}} stable"
+      state: present
+
+  - name: Install docker-ce
+    apt:
+      name: docker-ce
