@@ -2,8 +2,12 @@
   become: yes
   gather_facts: no
   pre_tasks:
-  - name: 'install python'
-    raw: 'sudo apt-get -y install python'
+  # - name: 'install python'
+  #   raw: 'sudo apt-get -y install python'
+  vars:
+  - app_path: /opt/g2csv
+  - middleware_path: "{{ app_path }}/middleware"
+  - scraper_path: "{{ app_path }}/scraper"
   tasks:
   - name: Install docker prerequisites
     apt:
@@ -15,6 +19,8 @@
     - ca-certificates
     - curl
     - software-properties-common
+    - python-pip
+  
   - name: Add the apt key
     apt_key:
       url: https://download.docker.com/linux/ubuntu/gpg 
@@ -32,3 +38,44 @@
   - name: Install docker-ce
     apt:
       name: docker-ce
+  
+  - name: Get the 'uname -s' value
+    command: "uname -s"
+    register: uname_s
+  
+  - name: Get the 'uname -m'
+    command: "uname -m"
+    register: uname_m
+
+  - name: Install Docker composer
+    get_url:
+      url: "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-{{ uname_s.stdout }}-{{ uname_m.stdout }}"
+      dest: /usr/local/bin/docker-compose
+      mode: 0555
+  
+  - name: Clone the app from the Git repository
+    git:
+      repo: https://github.com/abohmeed/g2csv.git
+      dest: "{{ app_path }}"
+      update: yes
+  
+  - name: Install Python prerequisites
+    pip:
+      name: "{{ item }}"
+    with_items:
+    - docker-py
+  
+  - name: Build the images
+    docker_image:
+      path: "{{ item.path }}"
+      name: "{{ item.name }}"
+    with_items:
+    - path: "{{ middleware_path }}"
+      name: middleware
+    - path: "{{ scraper_path }}"
+      name: scraper
+  
+  - name: Start the application
+    command: "docker-compose up -d" 
+    args:
+      chdir: "{{ app_path }}"
