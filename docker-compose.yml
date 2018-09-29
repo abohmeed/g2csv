@@ -4,8 +4,13 @@ services:
 # The middleware part
   middleware:
     image: middleware
-    ports:
-      - 3000:3000
 # The scraper part
   scraper:
     image: scraper
+# The frontend part
+  web:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - "./web/g2csv.conf:/etc/nginx/conf.d/g2csv.conf"
