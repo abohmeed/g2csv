@@ -14,6 +14,6 @@ def main(event,context):
             response.append({'title':title.text,'url':url.text})
     return json.dumps(response,sort_keys=True, indent=4)
 
-event = json.loads('{"keyword":"docker"}')
-# print type(event)
-print main(event,"")
+# event = json.loads('{"keyword":"docker"}')
+# # print type(event)
+# print main(event,"")
