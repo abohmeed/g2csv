@@ -7,19 +7,23 @@ import logging
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-def main(event,context):    
+def scrape(keywords):
     response = []
-    r = requests.get("https://www.google.com/search?q=" + event['keyword'])
-    logging.info("Successfully contacted Google.com")
-    bs = BeautifulSoup(r.text, features="html.parser")
-    for link in bs.find_all('div', {'class': 'g'}):
-        title = link.find('a')
-        url = link.find('cite')
-        if title and url:
-            logging.info("Parsed %s", title.text)
-            response.append({'title':title.text,'url':url.text})
+    for k in event['keywords']:
+        r = requests.get("https://www.google.com/search?q=" + k)
+        logging.info("Successfully contacted Google.com")
+        bs = BeautifulSoup(r.text, features="html.parser")
+        for link in bs.find_all('div', {'class': 'g'}):
+            title = link.find('a')
+            url = link.find('cite')
+            if title and url:
+                logging.info("Parsed %s", title.text)
+                response.append({'keyword':k,'title':title.text,'url':url.text})
     return json.dumps(response,sort_keys=True, indent=4)
 
-event = json.loads('{"keyword":"docker"}')
-# # print type(event)
-main(event,"")
+def main(event,context):    
+    logger.info(event)
+    # return scrape(event['keywords'])    
+
+event = json.loads('{"keywords":["docker","AWS"]}')
+print main(event,"")
