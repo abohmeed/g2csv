@@ -14,9 +14,15 @@ app = Flask(__name__)
 def index():
     content = request.json
     key = hashlib.sha224(str(content)).hexdigest()
-    # return json.dumps(content)
-    return content["keywords"][0]
-    
+    payload = {"keywords":content['keywords'],"key":key}
+    # client = boto3.client('sns',aws_access_key_id="",aws_secret_access_key="")
+    client = boto3.client('sns')
+    response = client.publish(
+        TopicArn="arn:aws:sns:us-west-2:790250078024:keywords",
+        Message=json.dumps(payload),
+        Subject="Test"
+    )
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(debug=True)
