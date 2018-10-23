@@ -14,15 +14,17 @@ app = Flask(__name__)
 def index():
     content = request.json
     key = hashlib.sha224(str(content)).hexdigest()
-    payload = {"keywords":content['keywords'],"key":key}
-    # client = boto3.client('sns',aws_access_key_id="",aws_secret_access_key="")
+    # payload = {"default":keywords":content['keywords'],"key":key}
+    message = {"keywords":content['keywords'],"key":key}
+    json_message = json.dumps({"default":json.dumps(message)})
     client = boto3.client('sns')
     response = client.publish(
         TopicArn="arn:aws:sns:us-west-2:790250078024:keywords",
-        Message=json.dumps(payload),
-        Subject="Test"
+        Message=json_message,
+        Subject="Test",
+        MessageStructure="json"
     )
-    return jsonify(response)
+    return json_message
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -27,15 +27,17 @@ def scrape(keywords):
 
 def main(event,context):    
     logger.info(event)
-    keywords = event["Records"][0]["sns"]["message"]["keywords"]
+    content = json.loads(event["Records"][0]["Sns"]["Message"])
+    keywords = content["keywords"]
+    key = content["key"]
     result = scrape(keywords)
     with open('/tmp/keywords.csv', 'wb') as f:
         w = csv.DictWriter(f, result[0].keys())
         w.writeheader()
         w.writerows(result)
     s3 = boto3.client('s3')
-    s3.upload_file('/tmp/keywords.csv', 'gscraper.downloads/' + + '.csv")
+    s3.upload_file('/tmp/keywords.csv', 'g2csv.downloads',key + '.csv')
 
 
-# event = {u'Records': [{u'eventVersion': u'2.0', u'eventTime': u'2018-10-18T14:07:00.676Z', u'requestParameters': {u'sourceIPAddress': u'41.33.59.145'}, u's3': {u'configurationId': u'895e0457-7b21-48af-a6b7-70bda7d48e7c', u'object': {u'eTag': u'512278359caf9bcdeee50a98d813ed42', u'sequencer': u'005BC89384A152327E', u'key': u'keywords.txt', u'size': 26}, u'bucket': {u'arn': u'arn:aws:s3:::gscraper.uploads', u'name': u'gscraper.uploads', u'ownerIdentity': {u'principalId': u'A2AHDBAACARLZN'}}, u's3SchemaVersion': u'1.0'}, u'responseElements': {u'x-amz-id-2': u'E5HHXp/5RdzELVyxKKzeoTaozIdo0nrpoGP4BYsxzBBBN8GFH0Ya1HoFrGrZOMSSMzBiTVRcYY8=', u'x-amz-request-id': u'F93C166AFB381653'}, u'awsRegion': u'us-west-2', u'eventName': u'ObjectCreated:Put', u'userIdentity': {u'principalId': u'A2AHDBAACARLZN'}, u'eventSource': u'aws:s3'}]}
-# main(event,"")
+event = {u'Records': [{u'EventVersion': u'1.0', u'EventSubscriptionArn': u'arn:aws:sns:us-west-2:790250078024:keywords:65d007c1-9d37-407d-bd7a-eee88a85e99e', u'EventSource': u'aws:sns', u'Sns': {u'SignatureVersion': u'1', u'Timestamp': u'2018-10-23T15:06:12.362Z', u'Signature': u'SOfT0TdBvOLgo6HXzlgkA5W4ckrtwVYV1xUm+BU6x8fDqWp1xQnhK311Y6DbekCjuzzz+lRn6JwVr28Ey9VwLcy3k3GVEMInRtkWjLs5iEJm1nbCWB8oUOD01TuHIlXDJw4HIjvRDVox6CAX3AZIcROOF8ndnerd9BdFw20DfIHHZ56DJ8XI7S2Y2j/K2h611xFOaWc8rkzZNWW2mYShmJgROfhngjiMgLfdVvc1vT5UvvoFok6Kp3h2BZ5pfmYbPac6zJVw+ubjJGQVkJfMY9djyanrfImukbibJbMfPrGGg40K3elRguPPXOuRgStlgxV7EqUL+p6QkLpXaRHUfQ==', u'SigningCertUrl': u'https://sns.us-west-2.amazonaws.com/SimpleNotificationService-ac565b8b1a6c5d002d285f9598aa1d9b.pem', u'MessageId': u'1b6e4d58-a839-5553-9f29-1911931de346', u'Message': u'{"keywords": ["simple", "notification", "service"], "key": "92ec54c02926b1d851da14084d01995ae3127920c8882b2f51df39a4"}', u'MessageAttributes': {}, u'Type': u'Notification', u'UnsubscribeUrl': u'https://sns.us-west-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-west-2:790250078024:keywords:65d007c1-9d37-407d-bd7a-eee88a85e99e', u'TopicArn': u'arn:aws:sns:us-west-2:790250078024:keywords', u'Subject': u'Test'}}]}
+main(event,"")
