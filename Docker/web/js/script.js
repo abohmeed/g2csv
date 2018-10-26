@@ -10,9 +10,9 @@ $(document).ready(function () {
     function send(data) {
         $.ajax({
             type: "post",
-            url: "http://flask/api/send",
+            url: "http://localhost/api/send",
             data: data,
-            dataType: "jsonp",
+            dataType: "json",
             beforeSend: function () {
                 $("#spinner").show();
             },
