@@ -13,6 +13,7 @@ $(document).ready(function () {
             url: "http://localhost/api/send",
             data: data,
             dataType: "json",
+            contentType: "application/json;charset=utf-8",
             beforeSend: function () {
                 $("#spinner").show();
             },
@@ -21,7 +22,8 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $("#success").show()
-                $("#success").text(response)
+                console.log(response)
+                $("#success").text(response.Response.MessageId)
             }
         });
     }
