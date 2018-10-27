@@ -22,12 +22,26 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $("#success").show()
-                console.log(response)
-                $("#success").text(response.Response.MessageId)
+                if (response.Success){
+                    $("#success").text("Lambda function successfully contacted. The CSV download link will appear in a few moments")
+                    filename = response.Key + ".csv"
+                    setTimeout(function(){
+                        $("#download").show()
+                        $("#download").attr("href", "https://s3-us-west-2.amazonaws.com/g2csv.downloads/" + filename);
+                        $("#download").text("https://s3-us-west-2.amazonaws.com/g2csv.downloads/" + filename);
+                    },5000)
+                } else {
+                    $("#failure").show()
+                    $("#failure").text("Something wrong happened:" + response.Response)
+                }
             }
         });
     }
     $('button#submit').click(function () {
+        // Hide the message and the link
+        $("#download").hide()
+        $("success").hide()
+        $("#failure").hide()
         var text = $('textarea#keywords').val();
         if (text == "") {
             alert("We need some keywords to get started!")

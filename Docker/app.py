@@ -15,7 +15,6 @@ app = Flask(__name__)
 def index():
     content = request.json
     key = hashlib.sha224(str(content)).hexdigest()
-    # payload = {"default":keywords":content['keywords'],"key":key}
     message = {"keywords": content['keywords'], "key": key}
     json_message = json.dumps({"default": json.dumps(message)})
     client = boto3.client('sns')
@@ -26,12 +25,11 @@ def index():
             Subject="Test",
             MessageStructure="json"
         )
-        return jsonify({"Response": response,"Success":"True"})
+        return jsonify({"Response": response,"Key":key, "Success":"True"})
     except Exception as e:
         return jsonify({"Response": str(e),"Success":"False"})
 
     return json_message
-
-
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
