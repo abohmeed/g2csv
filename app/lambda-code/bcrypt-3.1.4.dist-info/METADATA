@@ -6,7 +6,6 @@ Home-page: https://github.com/pyca/bcrypt/
 Author: The Python Cryptographic Authority developers
 Author-email: cryptography-dev@python.org
 License: Apache License, Version 2.0
-Description-Content-Type: UNKNOWN
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Programming Language :: Python :: Implementation :: PyPy

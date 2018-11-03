@@ -17,10 +17,10 @@ jmespath-0.9.3.dist-info/top_level.txt,sha256=vuy_oZ1ckpeSNrAi8JK8-yIGO6bduO3qvW
 jmespath-0.9.3.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
 ../../bin/jp.pyc,,
 jmespath/functions.pyc,,
-jmespath/__init__.pyc,,
 jmespath/exceptions.pyc,,
 jmespath/ast.pyc,,
 jmespath/parser.pyc,,
 jmespath/visitor.pyc,,
 jmespath/lexer.pyc,,
 jmespath/compat.pyc,,
+jmespath/__init__.pyc,,
