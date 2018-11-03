@@ -27,7 +27,7 @@ botocore/args.py,sha256=DcifOn4VexaCMjfMPZfJl1V2qTTFSsms62WrNrmW94c,10144
 botocore/validate.py,sha256=Mux0E83eM_WUTCzeZn3envIh1f3tqA04QDlaknNRrr4,11242
 botocore/translate.py,sha256=RteQ6FyDou98NspaETe6zyGextA_48CjrSFwDDLm65c,3412
 botocore/parsers.py,sha256=55mQw5lH-FRIky4jNwW72l9FnHCV6CG9KDrWCW4qi3g,38807
-botocore/__init__.py,sha256=HKHLFMPjNPTXnF7T8LhOujX8IxIBA7pr8cMpDlWGcZc,3487
+botocore/__init__.py,sha256=hqAI5j-3IGTtOxUTtXFqT8YDuoxSkkzSVpy96Qbav4Q,3487
 botocore/configloader.py,sha256=MqSNXs8Mw8nBaXkNSI7GhdVqAKGxJ4o5XbcHzgFMpsc,9558
 botocore/history.py,sha256=mM6u8qvmPpvYRLEaZi8O0sBFygw3p647kAtBuHfjfFI,1748
 botocore/client.py,sha256=zrIl3tgiKbUfug12tAO-2ZKNF6hC29XeeuSXq9H7ilU,38446
@@ -202,7 +202,7 @@ botocore/data/macie/2017-12-19/paginators-1.json,sha256=hIQ7AbLBsY4fPSNLVMg0dS45
 botocore/data/macie/2017-12-19/service-2.json,sha256=LAkWzyz_S9eJ6Uv4jJL6mKgzNA62BTkzOeOLLUC0EE8,19612
 botocore/data/rekognition/2016-06-27/examples-1.json,sha256=zYPz5XICBaOAiJKhMEL556jfRws6tjNx4KjJAL5_97s,20342
 botocore/data/rekognition/2016-06-27/paginators-1.json,sha256=q7MuYMm5kzMdQLuBqh2vApI65VFN2IwDFbkhpYIqfGo,642
-botocore/data/rekognition/2016-06-27/service-2.json,sha256=mLAo7RINqvnHcjwrMAMlVtV3kMjjx0RNMHk9ScUN-ao,174372
+botocore/data/rekognition/2016-06-27/service-2.json,sha256=YyOFNQbTzTzPsU0ILWkbDP5jaxKw8bw1eoxNxTo-KW0,178456
 botocore/data/secretsmanager/2017-10-17/service-2.sdk-extras.json,sha256=IEA3uxtjPY8I1on-q2W9-tozHHIVmneQyB6gCTcYTro,120
 botocore/data/secretsmanager/2017-10-17/paginators-1.json,sha256=hIQ7AbLBsY4fPSNLVMg0dS45m6cjZKFTjbp3ZLh4zj8,23
 botocore/data/secretsmanager/2017-10-17/service-2.json,sha256=eMO3OTEDAqhPHB9_pKny06SwMjBJ9YSCPX4eEnJV4nQ,123505
@@ -407,7 +407,7 @@ botocore/data/acm/2015-12-08/service-2.json,sha256=WQs7LLMSM3JWMk4W33gaTvTAZWJac
 botocore/data/clouddirectory/2016-05-10/paginators-1.json,sha256=y8GPuHURJmdagJ3QAI5mxkAzKvdCZwcnfYt3Z-qwgAU,2808
 botocore/data/clouddirectory/2016-05-10/service-2.json,sha256=ZIjBC0fe-l7RWhxmAwTASKo8OqPSPee1GGsH5Go42Hc,229185
 botocore/data/clouddirectory/2017-01-11/paginators-1.json,sha256=y8GPuHURJmdagJ3QAI5mxkAzKvdCZwcnfYt3Z-qwgAU,2808
-botocore/data/clouddirectory/2017-01-11/service-2.json,sha256=gm7cuRB4l9Lpo7vpNZf0z-26rEnhePET5whlIpnRMQs,231911
+botocore/data/clouddirectory/2017-01-11/service-2.json,sha256=ZN0o_vklfZQcZ_xz0D3Vxz-Ata_kY8WspdVvPhswhPI,235220
 botocore/data/cognito-sync/2014-06-30/service-2.json,sha256=hkPOHyw-EH4KNHt7aZHMgmJ0gSLr7WiClKS9yNWhIJ4,87989
 botocore/data/opsworks/2013-02-18/examples-1.json,sha256=K3b6mgYkitvcecSlJT-iV_EQATmvOySs66iKJI5qx0g,44
 botocore/data/opsworks/2013-02-18/waiters-2.json,sha256=2crmFuAdFm1n1gXfrbBHg_w-b0aaCPtBiXxHzp1N-LI,7578
@@ -612,13 +612,13 @@ botocore/data/lambda/2014-11-11/service-2.json,sha256=PJ47oYyRWSO7m307osuRTkqGZR
 botocore/data/lambda/2015-03-31/examples-1.json,sha256=Mbl7lTSfHcXzjPZeM26psMXIsVzL19gKSTzMvmtBgvI,17969
 botocore/data/lambda/2015-03-31/paginators-1.json,sha256=atQs58V54JCN3VGq61LykUVEXWWlHMj8vUAzxxbqg1Q,521
 botocore/data/lambda/2015-03-31/service-2.json,sha256=Ggn8jbpQ0QWg7LMHLYNS_nRqWuArlP0askILohXrw14,122409
-botocore-1.12.36.dist-info/WHEEL,sha256=AvR0WeTpDaxT645bl5FQxUK6NPsTls2ttpcGJg3j1Xg,110
-botocore-1.12.36.dist-info/DESCRIPTION.rst,sha256=4WxqZlSD_Xrd6Gz9vblSW6spBTdNJcmrxViUOIPJl5o,1390
-botocore-1.12.36.dist-info/metadata.json,sha256=SX4D4S1Sf6G5-9WfBjBKUcUimSgVIGxva98EZ5bpg-M,1615
-botocore-1.12.36.dist-info/METADATA,sha256=hzM6wvbXfHRfzwq-5G8GDD38VCVVn9bWkGhH0SuRYHE,2923
-botocore-1.12.36.dist-info/RECORD,,
-botocore-1.12.36.dist-info/top_level.txt,sha256=IdlNr9dnwi3lQt66dKnShE5HBUhIqBFqJmVhm11aijk,9
-botocore-1.12.36.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+botocore-1.12.37.dist-info/WHEEL,sha256=AvR0WeTpDaxT645bl5FQxUK6NPsTls2ttpcGJg3j1Xg,110
+botocore-1.12.37.dist-info/DESCRIPTION.rst,sha256=4WxqZlSD_Xrd6Gz9vblSW6spBTdNJcmrxViUOIPJl5o,1390
+botocore-1.12.37.dist-info/metadata.json,sha256=DGgWAZaSyPIMmWZDwy53r4ZpHyiY0UEfVjfHmNpagt8,1615
+botocore-1.12.37.dist-info/METADATA,sha256=E3nUZlLwLzyvWqc7PFeLcDvnIVwcDdJDAiQmPLHz32U,2923
+botocore-1.12.37.dist-info/RECORD,,
+botocore-1.12.37.dist-info/top_level.txt,sha256=IdlNr9dnwi3lQt66dKnShE5HBUhIqBFqJmVhm11aijk,9
+botocore-1.12.37.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
 botocore/vendored/requests/models.pyc,,
 botocore/vendored/requests/packages/chardet/codingstatemachine.pyc,,
 botocore/vendored/requests/sessions.pyc,,
