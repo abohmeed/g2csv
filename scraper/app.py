@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def index():
     response = []
-    query = urllib.parse.quote_plus(request.form['query'])
+    query = urllib.quote_plus(request.form['query'])
     r = requests.get("https://www.google.com/search?q=" + query)
     bs = BeautifulSoup(r.text, features="html.parser")
     for link in bs.find_all('div', {'class': 'g'}):
