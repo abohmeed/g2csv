@@ -11,6 +11,6 @@ services:
   web:
     image: nginx
     ports:
-      - 80:80
+      - 8000:80
     volumes:
       - "./web/g2csv.conf:/etc/nginx/conf.d/g2csv.conf"
