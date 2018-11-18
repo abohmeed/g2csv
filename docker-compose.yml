@@ -3,10 +3,10 @@ services:
 
 # The middleware part
   middleware:
-    image: middleware
+    build: middleware/
 # The scraper part
   scraper:
-    image: scraper
+    build: scraper/
 # The frontend part
   web:
     image: nginx
