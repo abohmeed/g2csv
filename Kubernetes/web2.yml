@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: g2csv.scraper
+  name: g2csv.nginx2
   labels:
-    scraper: flask
+    app: web
 spec:
   containers:
-    - image:  afakharany/g2csv_scraper
-      name:  web
+    - image:  afakharany/g2csv_nginx
+      name:  nginx
       ports:
       - containerPort: 80

@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: g2scv-middleware
+spec:
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: middleware
+    spec:
+      containers:
+        - image: afakharany/g2csv_middleware
+          imagePullPolicy: Always
+          name: g2csv-middleware
+          ports:
+            - containerPort: 80
