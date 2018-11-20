@@ -3,14 +3,17 @@ services:
 
 # The middleware part
   middleware:
-    build: middleware/
+    image: afakharany/g2csv_middleware
+    depends_on: 
+      - scraper
 # The scraper part
   scraper:
-    build: scraper/
+    image: afakharany/g2csv_scraper
 # The frontend part
   web:
-    image: nginx
+    image: afakharany/g2csv_nginx
     ports:
       - 8000:80
-    volumes:
-      - "./web/g2csv.conf:/etc/nginx/conf.d/g2csv.conf"
+    depends_on:
+      - middleware
+      - scraper
