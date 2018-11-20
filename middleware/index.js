@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
     let squery = req.body.search
-    request.post({ url: "http://scraper:5000",json:true, form: { query: squery } }, function (err, pres, body) {
+    request.post({ url: "http://localhost:5000",json:true, form: { query: squery } }, function (err, pres, body) {
         if (err) {
             res.render('index', { query: squery });
             console.log(err)
