@@ -4,11 +4,13 @@ services:
 # The middleware part
   middleware:
     image: afakharany/g2csv_middleware
+    network_mode: "host"
     depends_on: 
       - scraper
 # The scraper part
   scraper:
     image: afakharany/g2csv_scraper
+    network_mode: "host"
 # The frontend part
   web:
     image: afakharany/g2csv_nginx
@@ -17,3 +19,4 @@ services:
     depends_on:
       - middleware
       - scraper
+    network_mode: "host"

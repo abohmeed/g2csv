@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: g2scv-middleware
+  name: g2scv-scraper
 spec:
   replicas: 2
   minReadySeconds: 15
@@ -13,11 +13,11 @@ spec:
   template:
     metadata:
       labels:
-        app: middleware
+        app: scraper
     spec:
       containers:
-        - image: afakharany/g2csv_middleware
+        - image: afakharany/g2csv_scraper
           imagePullPolicy: Always
-          name: g2csv-middleware
+          name: g2csv-scraper
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
