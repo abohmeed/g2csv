@@ -16,7 +16,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - image: afakharany/g2csv_nginx_v1
+        - image: afakharany/g2csv_nginx_v2
           imagePullPolicy: Always
           name: g2csv-frontend
           ports:

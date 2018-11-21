@@ -16,7 +16,7 @@ spec:
         app: middleware
     spec:
       containers:
-        - image: afakharany/g2csv_middleware_v1
+        - image: afakharany/g2csv_middleware_v2
           imagePullPolicy: Always
           name: g2csv-middleware
           ports:
